@@ -1,0 +1,908 @@
+{
+  "project": {
+    "name": "Game Asset Pipeline",
+    "version": "1.0.0",
+    "author": "Ivan",
+    "description": "Automated 2D/3D game asset production using Blender, GIMP & Inkscape"
+  },
+  "generated_at": "2026-04-04T21:13:54",
+  "stages": [
+    {
+      "name": "2D Sprites",
+      "status": "success",
+      "assets": 8,
+      "time_s": 0.091
+    },
+    {
+      "name": "2D Textures",
+      "status": "success",
+      "assets": 37,
+      "time_s": 6.626
+    },
+    {
+      "name": "2D UI Design",
+      "status": "success",
+      "assets": 9,
+      "time_s": 0.007
+    },
+    {
+      "name": "2D Animations",
+      "status": "success",
+      "assets": 12,
+      "time_s": 0.052
+    },
+    {
+      "name": "3D Models",
+      "status": "success",
+      "assets": 14,
+      "time_s": 0.131
+    },
+    {
+      "name": "3D UV/Normals",
+      "status": "success",
+      "assets": 40,
+      "time_s": 1.049
+    },
+    {
+      "name": "3D Scenes",
+      "status": "success",
+      "assets": 6,
+      "time_s": 0.732
+    }
+  ],
+  "assets": [
+    {
+      "type": "sprite_sheet",
+      "name": "knight_sheet.png",
+      "path": "output\\sprites\\knight_sheet.png",
+      "meta_path": "output\\sprites\\knight_meta.json",
+      "dimensions": "512x64",
+      "frame_count": 8
+    },
+    {
+      "type": "sprite_sheet",
+      "name": "mage_sheet.png",
+      "path": "output\\sprites\\mage_sheet.png",
+      "meta_path": "output\\sprites\\mage_meta.json",
+      "dimensions": "512x64",
+      "frame_count": 8
+    },
+    {
+      "type": "sprite_sheet",
+      "name": "robot_sheet.png",
+      "path": "output\\sprites\\robot_sheet.png",
+      "meta_path": "output\\sprites\\robot_meta.json",
+      "dimensions": "512x64",
+      "frame_count": 8
+    },
+    {
+      "type": "tileset",
+      "name": "tileset.png",
+      "path": "output\\sprites\\tileset.png",
+      "meta_path": "output\\sprites\\tileset_meta.json",
+      "dimensions": "256x320",
+      "tile_count": 17
+    },
+    {
+      "type": "icon_sheet",
+      "name": "item_icons.png",
+      "path": "output\\sprites\\item_icons.png",
+      "dimensions": "384x64",
+      "icon_count": 6
+    },
+    {
+      "type": "gimp_script",
+      "name": "knight_sprites.scm",
+      "path": "output\\scripts\\gimp\\knight_sprites.scm",
+      "tool": "GIMP Script-Fu",
+      "description": "Sprite sheet generator for knight character"
+    },
+    {
+      "type": "gimp_script",
+      "name": "mage_sprites.scm",
+      "path": "output\\scripts\\gimp\\mage_sprites.scm",
+      "tool": "GIMP Script-Fu",
+      "description": "Sprite sheet generator for mage character"
+    },
+    {
+      "type": "gimp_script",
+      "name": "robot_sprites.scm",
+      "path": "output\\scripts\\gimp\\robot_sprites.scm",
+      "tool": "GIMP Script-Fu",
+      "description": "Sprite sheet generator for robot character"
+    },
+    {
+      "type": "texture",
+      "name": "stone_wall_256.png",
+      "path": "output\\textures\\stone_wall_256.png",
+      "dimensions": "256x256"
+    },
+    {
+      "type": "texture",
+      "name": "stone_wall_512.png",
+      "path": "output\\textures\\stone_wall_512.png",
+      "dimensions": "512x512"
+    },
+    {
+      "type": "texture",
+      "name": "stone_wall_1024.png",
+      "path": "output\\textures\\stone_wall_1024.png",
+      "dimensions": "1024x1024"
+    },
+    {
+      "type": "texture",
+      "name": "wood_plank_256.png",
+      "path": "output\\textures\\wood_plank_256.png",
+      "dimensions": "256x256"
+    },
+    {
+      "type": "texture",
+      "name": "wood_plank_512.png",
+      "path": "output\\textures\\wood_plank_512.png",
+      "dimensions": "512x512"
+    },
+    {
+      "type": "texture",
+      "name": "wood_plank_1024.png",
+      "path": "output\\textures\\wood_plank_1024.png",
+      "dimensions": "1024x1024"
+    },
+    {
+      "type": "texture",
+      "name": "metal_plate_256.png",
+      "path": "output\\textures\\metal_plate_256.png",
+      "dimensions": "256x256"
+    },
+    {
+      "type": "texture",
+      "name": "metal_plate_512.png",
+      "path": "output\\textures\\metal_plate_512.png",
+      "dimensions": "512x512"
+    },
+    {
+      "type": "texture",
+      "name": "metal_plate_1024.png",
+      "path": "output\\textures\\metal_plate_1024.png",
+      "dimensions": "1024x1024"
+    },
+    {
+      "type": "texture",
+      "name": "fabric_cloth_256.png",
+      "path": "output\\textures\\fabric_cloth_256.png",
+      "dimensions": "256x256"
+    },
+    {
+      "type": "texture",
+      "name": "fabric_cloth_512.png",
+      "path": "output\\textures\\fabric_cloth_512.png",
+      "dimensions": "512x512"
+    },
+    {
+      "type": "texture",
+      "name": "fabric_cloth_1024.png",
+      "path": "output\\textures\\fabric_cloth_1024.png",
+      "dimensions": "1024x1024"
+    },
+    {
+      "type": "texture",
+      "name": "brick_red_256.png",
+      "path": "output\\textures\\brick_red_256.png",
+      "dimensions": "256x256"
+    },
+    {
+      "type": "texture",
+      "name": "brick_red_512.png",
+      "path": "output\\textures\\brick_red_512.png",
+      "dimensions": "512x512"
+    },
+    {
+      "type": "texture",
+      "name": "brick_red_1024.png",
+      "path": "output\\textures\\brick_red_1024.png",
+      "dimensions": "1024x1024"
+    },
+    {
+      "type": "texture",
+      "name": "sand_desert_256.png",
+      "path": "output\\textures\\sand_desert_256.png",
+      "dimensions": "256x256"
+    },
+    {
+      "type": "texture",
+      "name": "sand_desert_512.png",
+      "path": "output\\textures\\sand_desert_512.png",
+      "dimensions": "512x512"
+    },
+    {
+      "type": "texture",
+      "name": "sand_desert_1024.png",
+      "path": "output\\textures\\sand_desert_1024.png",
+      "dimensions": "1024x1024"
+    },
+    {
+      "type": "texture_atlas",
+      "name": "texture_atlas.png",
+      "path": "output\\textures\\texture_atlas.png",
+      "dimensions": "2048x256",
+      "texture_count": 6,
+      "meta_path": "output\\textures\\atlas_meta.json"
+    },
+    {
+      "type": "gimp_texture_script",
+      "name": "texture_stone_wall_256.py",
+      "path": "output\\scripts\\gimp\\texture_stone_wall_256.py",
+      "tool": "GIMP Python-Fu"
+    },
+    {
+      "type": "gimp_texture_script",
+      "name": "texture_stone_wall_512.py",
+      "path": "output\\scripts\\gimp\\texture_stone_wall_512.py",
+      "tool": "GIMP Python-Fu"
+    },
+    {
+      "type": "gimp_texture_script",
+      "name": "texture_stone_wall_1024.py",
+      "path": "output\\scripts\\gimp\\texture_stone_wall_1024.py",
+      "tool": "GIMP Python-Fu"
+    },
+    {
+      "type": "gimp_texture_script",
+      "name": "texture_wood_plank_256.py",
+      "path": "output\\scripts\\gimp\\texture_wood_plank_256.py",
+      "tool": "GIMP Python-Fu"
+    },
+    {
+      "type": "gimp_texture_script",
+      "name": "texture_wood_plank_512.py",
+      "path": "output\\scripts\\gimp\\texture_wood_plank_512.py",
+      "tool": "GIMP Python-Fu"
+    },
+    {
+      "type": "gimp_texture_script",
+      "name": "texture_wood_plank_1024.py",
+      "path": "output\\scripts\\gimp\\texture_wood_plank_1024.py",
+      "tool": "GIMP Python-Fu"
+    },
+    {
+      "type": "gimp_texture_script",
+      "name": "texture_metal_plate_256.py",
+      "path": "output\\scripts\\gimp\\texture_metal_plate_256.py",
+      "tool": "GIMP Python-Fu"
+    },
+    {
+      "type": "gimp_texture_script",
+      "name": "texture_metal_plate_512.py",
+      "path": "output\\scripts\\gimp\\texture_metal_plate_512.py",
+      "tool": "GIMP Python-Fu"
+    },
+    {
+      "type": "gimp_texture_script",
+      "name": "texture_metal_plate_1024.py",
+      "path": "output\\scripts\\gimp\\texture_metal_plate_1024.py",
+      "tool": "GIMP Python-Fu"
+    },
+    {
+      "type": "gimp_texture_script",
+      "name": "texture_fabric_cloth_256.py",
+      "path": "output\\scripts\\gimp\\texture_fabric_cloth_256.py",
+      "tool": "GIMP Python-Fu"
+    },
+    {
+      "type": "gimp_texture_script",
+      "name": "texture_fabric_cloth_512.py",
+      "path": "output\\scripts\\gimp\\texture_fabric_cloth_512.py",
+      "tool": "GIMP Python-Fu"
+    },
+    {
+      "type": "gimp_texture_script",
+      "name": "texture_fabric_cloth_1024.py",
+      "path": "output\\scripts\\gimp\\texture_fabric_cloth_1024.py",
+      "tool": "GIMP Python-Fu"
+    },
+    {
+      "type": "gimp_texture_script",
+      "name": "texture_brick_red_256.py",
+      "path": "output\\scripts\\gimp\\texture_brick_red_256.py",
+      "tool": "GIMP Python-Fu"
+    },
+    {
+      "type": "gimp_texture_script",
+      "name": "texture_brick_red_512.py",
+      "path": "output\\scripts\\gimp\\texture_brick_red_512.py",
+      "tool": "GIMP Python-Fu"
+    },
+    {
+      "type": "gimp_texture_script",
+      "name": "texture_brick_red_1024.py",
+      "path": "output\\scripts\\gimp\\texture_brick_red_1024.py",
+      "tool": "GIMP Python-Fu"
+    },
+    {
+      "type": "gimp_texture_script",
+      "name": "texture_sand_desert_256.py",
+      "path": "output\\scripts\\gimp\\texture_sand_desert_256.py",
+      "tool": "GIMP Python-Fu"
+    },
+    {
+      "type": "gimp_texture_script",
+      "name": "texture_sand_desert_512.py",
+      "path": "output\\scripts\\gimp\\texture_sand_desert_512.py",
+      "tool": "GIMP Python-Fu"
+    },
+    {
+      "type": "gimp_texture_script",
+      "name": "texture_sand_desert_1024.py",
+      "path": "output\\scripts\\gimp\\texture_sand_desert_1024.py",
+      "tool": "GIMP Python-Fu"
+    },
+    {
+      "type": "svg_ui",
+      "name": "health_bar.svg",
+      "path": "output\\ui_assets\\health_bar.svg",
+      "tool": "Inkscape",
+      "dimensions": "200x24",
+      "description": "UI element: health_bar"
+    },
+    {
+      "type": "svg_ui",
+      "name": "mana_bar.svg",
+      "path": "output\\ui_assets\\mana_bar.svg",
+      "tool": "Inkscape",
+      "dimensions": "200x24",
+      "description": "UI element: mana_bar"
+    },
+    {
+      "type": "svg_ui",
+      "name": "xp_bar.svg",
+      "path": "output\\ui_assets\\xp_bar.svg",
+      "tool": "Inkscape",
+      "dimensions": "300x16",
+      "description": "UI element: xp_bar"
+    },
+    {
+      "type": "svg_ui",
+      "name": "inventory_slot.svg",
+      "path": "output\\ui_assets\\inventory_slot.svg",
+      "tool": "Inkscape",
+      "dimensions": "64x64",
+      "description": "UI element: inventory_slot"
+    },
+    {
+      "type": "svg_ui",
+      "name": "dialog_box.svg",
+      "path": "output\\ui_assets\\dialog_box.svg",
+      "tool": "Inkscape",
+      "dimensions": "400x150",
+      "description": "UI element: dialog_box"
+    },
+    {
+      "type": "svg_ui",
+      "name": "minimap_frame.svg",
+      "path": "output\\ui_assets\\minimap_frame.svg",
+      "tool": "Inkscape",
+      "dimensions": "180x180",
+      "description": "UI element: minimap_frame"
+    },
+    {
+      "type": "svg_ui",
+      "name": "tooltip.svg",
+      "path": "output\\ui_assets\\tooltip.svg",
+      "tool": "Inkscape",
+      "dimensions": "250x80",
+      "description": "UI element: tooltip"
+    },
+    {
+      "type": "inkscape_batch",
+      "name": "inkscape_export.bat",
+      "path": "output\\scripts\\inkscape_export.bat",
+      "tool": "Inkscape CLI"
+    },
+    {
+      "type": "ui_preview",
+      "name": "hud_preview.png",
+      "path": "output\\ui_assets\\hud_preview.png",
+      "dimensions": "420x300"
+    },
+    {
+      "type": "animation_gif",
+      "name": "rotation_effect.gif",
+      "path": "output\\animations\\rotation_effect.gif",
+      "frame_count": 8,
+      "dimensions": "128x128"
+    },
+    {
+      "type": "animation_sequence",
+      "name": "rotation_effect",
+      "path": "output\\animations\\rotation_effect",
+      "meta_path": "output\\animations\\rotation_effect\\meta.json",
+      "frame_count": 8
+    },
+    {
+      "type": "animation_gif",
+      "name": "pulse_glow.gif",
+      "path": "output\\animations\\pulse_glow.gif",
+      "frame_count": 8,
+      "dimensions": "128x128"
+    },
+    {
+      "type": "animation_sequence",
+      "name": "pulse_glow",
+      "path": "output\\animations\\pulse_glow",
+      "meta_path": "output\\animations\\pulse_glow\\meta.json",
+      "frame_count": 8
+    },
+    {
+      "type": "animation_gif",
+      "name": "particle_burst.gif",
+      "path": "output\\animations\\particle_burst.gif",
+      "frame_count": 8,
+      "dimensions": "128x128"
+    },
+    {
+      "type": "animation_sequence",
+      "name": "particle_burst",
+      "path": "output\\animations\\particle_burst",
+      "meta_path": "output\\animations\\particle_burst\\meta.json",
+      "frame_count": 8
+    },
+    {
+      "type": "animation_gif",
+      "name": "shield_shimmer.gif",
+      "path": "output\\animations\\shield_shimmer.gif",
+      "frame_count": 8,
+      "dimensions": "128x128"
+    },
+    {
+      "type": "animation_sequence",
+      "name": "shield_shimmer",
+      "path": "output\\animations\\shield_shimmer",
+      "meta_path": "output\\animations\\shield_shimmer\\meta.json",
+      "frame_count": 8
+    },
+    {
+      "type": "gimp_anim_script",
+      "name": "anim_rotation_effect.scm",
+      "path": "output\\scripts\\gimp\\anim_rotation_effect.scm",
+      "tool": "GIMP Script-Fu",
+      "description": "Spinning rotation effect"
+    },
+    {
+      "type": "gimp_anim_script",
+      "name": "anim_pulse_glow.scm",
+      "path": "output\\scripts\\gimp\\anim_pulse_glow.scm",
+      "tool": "GIMP Script-Fu",
+      "description": "Pulsing glow animation"
+    },
+    {
+      "type": "gimp_anim_script",
+      "name": "anim_particle_burst.scm",
+      "path": "output\\scripts\\gimp\\anim_particle_burst.scm",
+      "tool": "GIMP Script-Fu",
+      "description": "Particle burst VFX"
+    },
+    {
+      "type": "gimp_anim_script",
+      "name": "anim_shield_shimmer.scm",
+      "path": "output\\scripts\\gimp\\anim_shield_shimmer.scm",
+      "tool": "GIMP Script-Fu",
+      "description": "Shield shimmer overlay"
+    },
+    {
+      "type": "3d_model",
+      "name": "gem_ruby",
+      "stl_path": "output\\models_3d\\gem_ruby.stl",
+      "obj_path": "output\\models_3d\\gem_ruby.obj",
+      "vertices": 48,
+      "faces": 16,
+      "format": "STL+OBJ"
+    },
+    {
+      "type": "3d_model",
+      "name": "gem_sapphire",
+      "stl_path": "output\\models_3d\\gem_sapphire.stl",
+      "obj_path": "output\\models_3d\\gem_sapphire.obj",
+      "vertices": 48,
+      "faces": 16,
+      "format": "STL+OBJ"
+    },
+    {
+      "type": "3d_model",
+      "name": "gem_emerald",
+      "stl_path": "output\\models_3d\\gem_emerald.stl",
+      "obj_path": "output\\models_3d\\gem_emerald.obj",
+      "vertices": 36,
+      "faces": 12,
+      "format": "STL+OBJ"
+    },
+    {
+      "type": "3d_model",
+      "name": "potion_health",
+      "stl_path": "output\\models_3d\\potion_health.stl",
+      "obj_path": "output\\models_3d\\potion_health.obj",
+      "vertices": 648,
+      "faces": 216,
+      "format": "STL+OBJ"
+    },
+    {
+      "type": "3d_model",
+      "name": "potion_mana",
+      "stl_path": "output\\models_3d\\potion_mana.stl",
+      "obj_path": "output\\models_3d\\potion_mana.obj",
+      "vertices": 648,
+      "faces": 216,
+      "format": "STL+OBJ"
+    },
+    {
+      "type": "3d_model",
+      "name": "shield_round",
+      "stl_path": "output\\models_3d\\shield_round.stl",
+      "obj_path": "output\\models_3d\\shield_round.obj",
+      "vertices": 144,
+      "faces": 48,
+      "format": "STL+OBJ"
+    },
+    {
+      "type": "3d_model",
+      "name": "sword_basic",
+      "stl_path": "output\\models_3d\\sword_basic.stl",
+      "obj_path": "output\\models_3d\\sword_basic.obj",
+      "vertices": 42,
+      "faces": 14,
+      "format": "STL+OBJ"
+    },
+    {
+      "type": "blender_script",
+      "name": "model_gem_ruby.py",
+      "path": "output\\scripts\\blender\\model_gem_ruby.py",
+      "tool": "Blender",
+      "model": "gem_ruby"
+    },
+    {
+      "type": "blender_script",
+      "name": "model_gem_sapphire.py",
+      "path": "output\\scripts\\blender\\model_gem_sapphire.py",
+      "tool": "Blender",
+      "model": "gem_sapphire"
+    },
+    {
+      "type": "blender_script",
+      "name": "model_gem_emerald.py",
+      "path": "output\\scripts\\blender\\model_gem_emerald.py",
+      "tool": "Blender",
+      "model": "gem_emerald"
+    },
+    {
+      "type": "blender_script",
+      "name": "model_potion_health.py",
+      "path": "output\\scripts\\blender\\model_potion_health.py",
+      "tool": "Blender",
+      "model": "potion_health"
+    },
+    {
+      "type": "blender_script",
+      "name": "model_potion_mana.py",
+      "path": "output\\scripts\\blender\\model_potion_mana.py",
+      "tool": "Blender",
+      "model": "potion_mana"
+    },
+    {
+      "type": "blender_script",
+      "name": "model_shield_round.py",
+      "path": "output\\scripts\\blender\\model_shield_round.py",
+      "tool": "Blender",
+      "model": "shield_round"
+    },
+    {
+      "type": "blender_script",
+      "name": "model_sword_basic.py",
+      "path": "output\\scripts\\blender\\model_sword_basic.py",
+      "tool": "Blender",
+      "model": "sword_basic"
+    },
+    {
+      "type": "uv_layout",
+      "name": "gem_ruby_uv_layout.png",
+      "path": "output\\uv_maps\\gem_ruby_uv_layout.png"
+    },
+    {
+      "type": "normal_map",
+      "name": "gem_ruby_normal.png",
+      "path": "output\\normal_maps\\gem_ruby_normal.png",
+      "heightmap": "output\\normal_maps\\gem_ruby_heightmap.png",
+      "dimensions": "512x512"
+    },
+    {
+      "type": "uv_layout",
+      "name": "gem_sapphire_uv_layout.png",
+      "path": "output\\uv_maps\\gem_sapphire_uv_layout.png"
+    },
+    {
+      "type": "normal_map",
+      "name": "gem_sapphire_normal.png",
+      "path": "output\\normal_maps\\gem_sapphire_normal.png",
+      "heightmap": "output\\normal_maps\\gem_sapphire_heightmap.png",
+      "dimensions": "512x512"
+    },
+    {
+      "type": "uv_layout",
+      "name": "gem_emerald_uv_layout.png",
+      "path": "output\\uv_maps\\gem_emerald_uv_layout.png"
+    },
+    {
+      "type": "normal_map",
+      "name": "gem_emerald_normal.png",
+      "path": "output\\normal_maps\\gem_emerald_normal.png",
+      "heightmap": "output\\normal_maps\\gem_emerald_heightmap.png",
+      "dimensions": "512x512"
+    },
+    {
+      "type": "uv_layout",
+      "name": "potion_health_uv_layout.png",
+      "path": "output\\uv_maps\\potion_health_uv_layout.png"
+    },
+    {
+      "type": "normal_map",
+      "name": "potion_health_normal.png",
+      "path": "output\\normal_maps\\potion_health_normal.png",
+      "heightmap": "output\\normal_maps\\potion_health_heightmap.png",
+      "dimensions": "512x512"
+    },
+    {
+      "type": "uv_layout",
+      "name": "potion_mana_uv_layout.png",
+      "path": "output\\uv_maps\\potion_mana_uv_layout.png"
+    },
+    {
+      "type": "normal_map",
+      "name": "potion_mana_normal.png",
+      "path": "output\\normal_maps\\potion_mana_normal.png",
+      "heightmap": "output\\normal_maps\\potion_mana_heightmap.png",
+      "dimensions": "512x512"
+    },
+    {
+      "type": "uv_layout",
+      "name": "shield_round_uv_layout.png",
+      "path": "output\\uv_maps\\shield_round_uv_layout.png"
+    },
+    {
+      "type": "normal_map",
+      "name": "shield_round_normal.png",
+      "path": "output\\normal_maps\\shield_round_normal.png",
+      "heightmap": "output\\normal_maps\\shield_round_heightmap.png",
+      "dimensions": "512x512"
+    },
+    {
+      "type": "uv_layout",
+      "name": "sword_basic_uv_layout.png",
+      "path": "output\\uv_maps\\sword_basic_uv_layout.png"
+    },
+    {
+      "type": "normal_map",
+      "name": "sword_basic_normal.png",
+      "path": "output\\normal_maps\\sword_basic_normal.png",
+      "heightmap": "output\\normal_maps\\sword_basic_heightmap.png",
+      "dimensions": "512x512"
+    },
+    {
+      "type": "uv_layout",
+      "name": "axe_war_uv_layout.png",
+      "path": "output\\uv_maps\\axe_war_uv_layout.png"
+    },
+    {
+      "type": "normal_map",
+      "name": "axe_war_normal.png",
+      "path": "output\\normal_maps\\axe_war_normal.png",
+      "heightmap": "output\\normal_maps\\axe_war_heightmap.png",
+      "dimensions": "512x512"
+    },
+    {
+      "type": "uv_layout",
+      "name": "tower_defense_uv_layout.png",
+      "path": "output\\uv_maps\\tower_defense_uv_layout.png"
+    },
+    {
+      "type": "normal_map",
+      "name": "tower_defense_normal.png",
+      "path": "output\\normal_maps\\tower_defense_normal.png",
+      "heightmap": "output\\normal_maps\\tower_defense_heightmap.png",
+      "dimensions": "512x512"
+    },
+    {
+      "type": "uv_layout",
+      "name": "terrain_chunk_uv_layout.png",
+      "path": "output\\uv_maps\\terrain_chunk_uv_layout.png"
+    },
+    {
+      "type": "normal_map",
+      "name": "terrain_chunk_normal.png",
+      "path": "output\\normal_maps\\terrain_chunk_normal.png",
+      "heightmap": "output\\normal_maps\\terrain_chunk_heightmap.png",
+      "dimensions": "512x512"
+    },
+    {
+      "type": "blender_uv_script",
+      "name": "uv_gem_ruby.py",
+      "path": "output\\scripts\\blender\\uv_gem_ruby.py",
+      "tool": "Blender"
+    },
+    {
+      "type": "blender_normal_script",
+      "name": "normal_gem_ruby.py",
+      "path": "output\\scripts\\blender\\normal_gem_ruby.py",
+      "tool": "Blender"
+    },
+    {
+      "type": "blender_uv_script",
+      "name": "uv_gem_sapphire.py",
+      "path": "output\\scripts\\blender\\uv_gem_sapphire.py",
+      "tool": "Blender"
+    },
+    {
+      "type": "blender_normal_script",
+      "name": "normal_gem_sapphire.py",
+      "path": "output\\scripts\\blender\\normal_gem_sapphire.py",
+      "tool": "Blender"
+    },
+    {
+      "type": "blender_uv_script",
+      "name": "uv_gem_emerald.py",
+      "path": "output\\scripts\\blender\\uv_gem_emerald.py",
+      "tool": "Blender"
+    },
+    {
+      "type": "blender_normal_script",
+      "name": "normal_gem_emerald.py",
+      "path": "output\\scripts\\blender\\normal_gem_emerald.py",
+      "tool": "Blender"
+    },
+    {
+      "type": "blender_uv_script",
+      "name": "uv_potion_health.py",
+      "path": "output\\scripts\\blender\\uv_potion_health.py",
+      "tool": "Blender"
+    },
+    {
+      "type": "blender_normal_script",
+      "name": "normal_potion_health.py",
+      "path": "output\\scripts\\blender\\normal_potion_health.py",
+      "tool": "Blender"
+    },
+    {
+      "type": "blender_uv_script",
+      "name": "uv_potion_mana.py",
+      "path": "output\\scripts\\blender\\uv_potion_mana.py",
+      "tool": "Blender"
+    },
+    {
+      "type": "blender_normal_script",
+      "name": "normal_potion_mana.py",
+      "path": "output\\scripts\\blender\\normal_potion_mana.py",
+      "tool": "Blender"
+    },
+    {
+      "type": "blender_uv_script",
+      "name": "uv_shield_round.py",
+      "path": "output\\scripts\\blender\\uv_shield_round.py",
+      "tool": "Blender"
+    },
+    {
+      "type": "blender_normal_script",
+      "name": "normal_shield_round.py",
+      "path": "output\\scripts\\blender\\normal_shield_round.py",
+      "tool": "Blender"
+    },
+    {
+      "type": "blender_uv_script",
+      "name": "uv_sword_basic.py",
+      "path": "output\\scripts\\blender\\uv_sword_basic.py",
+      "tool": "Blender"
+    },
+    {
+      "type": "blender_normal_script",
+      "name": "normal_sword_basic.py",
+      "path": "output\\scripts\\blender\\normal_sword_basic.py",
+      "tool": "Blender"
+    },
+    {
+      "type": "blender_uv_script",
+      "name": "uv_axe_war.py",
+      "path": "output\\scripts\\blender\\uv_axe_war.py",
+      "tool": "Blender"
+    },
+    {
+      "type": "blender_normal_script",
+      "name": "normal_axe_war.py",
+      "path": "output\\scripts\\blender\\normal_axe_war.py",
+      "tool": "Blender"
+    },
+    {
+      "type": "blender_uv_script",
+      "name": "uv_tower_defense.py",
+      "path": "output\\scripts\\blender\\uv_tower_defense.py",
+      "tool": "Blender"
+    },
+    {
+      "type": "blender_normal_script",
+      "name": "normal_tower_defense.py",
+      "path": "output\\scripts\\blender\\normal_tower_defense.py",
+      "tool": "Blender"
+    },
+    {
+      "type": "blender_uv_script",
+      "name": "uv_terrain_chunk.py",
+      "path": "output\\scripts\\blender\\uv_terrain_chunk.py",
+      "tool": "Blender"
+    },
+    {
+      "type": "blender_normal_script",
+      "name": "normal_terrain_chunk.py",
+      "path": "output\\scripts\\blender\\normal_terrain_chunk.py",
+      "tool": "Blender"
+    },
+    {
+      "type": "blender_scene_script",
+      "name": "scene_dungeon_entrance.py",
+      "path": "output\\scripts\\blender\\scene_dungeon_entrance.py",
+      "tool": "Blender",
+      "scene": "dungeon_entrance",
+      "models": [
+        "tower_defense",
+        "gem_ruby",
+        "sword_basic",
+        "shield_round"
+      ]
+    },
+    {
+      "type": "blender_scene_script",
+      "name": "scene_loot_display.py",
+      "path": "output\\scripts\\blender\\scene_loot_display.py",
+      "tool": "Blender",
+      "scene": "loot_display",
+      "models": [
+        "gem_ruby",
+        "gem_sapphire",
+        "gem_emerald",
+        "potion_health",
+        "potion_mana"
+      ]
+    },
+    {
+      "type": "blender_scene_script",
+      "name": "scene_weapons_rack.py",
+      "path": "output\\scripts\\blender\\scene_weapons_rack.py",
+      "tool": "Blender",
+      "scene": "weapons_rack",
+      "models": [
+        "sword_basic",
+        "axe_war",
+        "shield_round"
+      ]
+    },
+    {
+      "type": "scene_preview",
+      "name": "dungeon_entrance_preview.png",
+      "path": "output\\scenes\\dungeon_entrance_preview.png",
+      "scene": "dungeon_entrance"
+    },
+    {
+      "type": "scene_preview",
+      "name": "loot_display_preview.png",
+      "path": "output\\scenes\\loot_display_preview.png",
+      "scene": "loot_display"
+    },
+    {
+      "type": "scene_preview",
+      "name": "weapons_rack_preview.png",
+      "path": "output\\scenes\\weapons_rack_preview.png",
+      "scene": "weapons_rack"
+    }
+  ],
+  "summary": {
+    "total_assets": 71,
+    "total_scripts": 55,
+    "total_items": 126,
+    "total_time_s": 8.688,
+    "stages_passed": 7,
+    "stages_failed": 0
+  }
+}

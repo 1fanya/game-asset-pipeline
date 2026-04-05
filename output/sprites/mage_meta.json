@@ -1,0 +1,64 @@
+{
+  "name": "mage",
+  "sprite_size": 64,
+  "columns": 8,
+  "rows": 1,
+  "frames": [
+    {
+      "name": "idle",
+      "x": 0,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    },
+    {
+      "name": "walk_1",
+      "x": 64,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    },
+    {
+      "name": "walk_2",
+      "x": 128,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    },
+    {
+      "name": "walk_3",
+      "x": 192,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    },
+    {
+      "name": "cast_1",
+      "x": 256,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    },
+    {
+      "name": "cast_2",
+      "x": 320,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    },
+    {
+      "name": "jump",
+      "x": 384,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    },
+    {
+      "name": "fall",
+      "x": 448,
+      "y": 0,
+      "width": 64,
+      "height": 64
+    }
+  ]
+}

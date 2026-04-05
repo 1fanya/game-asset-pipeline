@@ -1,0 +1,267 @@
+# ============================================================
+#  Game Asset Pipeline Configuration
+#  2D & 3D Digital Media Specialist Portfolio
+# ============================================================
+
+project:
+  name: "Game Asset Pipeline"
+  version: "1.0.0"
+  author: "Ivan"
+  description: "Automated 2D/3D game asset production using Blender, GIMP & Inkscape"
+
+# ------ Tool Paths (auto-detected or manual override) ------
+tools:
+  blender: "blender" # or full path: "C:/Program Files/Blender Foundation/Blender 4.x/blender.exe"
+  gimp: "gimp" # or full path: "C:/Program Files/GIMP 2/bin/gimp-2.10.exe"
+  inkscape: "inkscape" # or full path: "C:/Program Files/Inkscape/bin/inkscape.exe"
+
+# ------ Output Directories ------
+output:
+  root: "output"
+  sprites: "output/sprites"
+  textures: "output/textures"
+  ui_assets: "output/ui_assets"
+  animations: "output/animations"
+  models_3d: "output/models_3d"
+  uv_maps: "output/uv_maps"
+  normal_maps: "output/normal_maps"
+  scenes: "output/scenes"
+  scripts: "output/scripts"
+  reports: "output/reports"
+
+# ------ Color Palettes ------
+palettes:
+  fantasy:
+    primary: [72, 120, 200]
+    secondary: [200, 80, 80]
+    accent: [255, 200, 50]
+    dark: [30, 30, 45]
+    light: [220, 220, 240]
+    grass: [60, 160, 60]
+    stone: [140, 135, 125]
+    water: [50, 120, 200]
+    lava: [255, 80, 20]
+    wood: [140, 90, 50]
+
+  scifi:
+    primary: [0, 200, 220]
+    secondary: [180, 50, 220]
+    accent: [0, 255, 150]
+    dark: [15, 15, 30]
+    light: [200, 210, 230]
+    metal: [160, 170, 180]
+    energy: [0, 220, 255]
+    plasma: [200, 50, 255]
+    hull: [60, 65, 80]
+    glass: [180, 220, 255]
+
+# ------ 2D Pipeline Settings ------
+pipeline_2d:
+  sprite_size: 64
+  sprite_sheet_columns: 8
+  animation_frames: 8
+  texture_sizes: [256, 512, 1024]
+  atlas_max_size: 2048
+  dpi_variants: [72, 144, 288]
+
+  sprites:
+    - name: "knight"
+      frames:
+        [
+          "idle",
+          "walk_1",
+          "walk_2",
+          "walk_3",
+          "attack_1",
+          "attack_2",
+          "jump",
+          "fall",
+        ]
+      palette: "fantasy"
+    - name: "mage"
+      frames:
+        [
+          "idle",
+          "walk_1",
+          "walk_2",
+          "walk_3",
+          "cast_1",
+          "cast_2",
+          "jump",
+          "fall",
+        ]
+      palette: "fantasy"
+    - name: "robot"
+      frames:
+        [
+          "idle",
+          "walk_1",
+          "walk_2",
+          "walk_3",
+          "shoot_1",
+          "shoot_2",
+          "jump",
+          "fall",
+        ]
+      palette: "scifi"
+
+  tiles:
+    - name: "grass"
+      variants: 4
+    - name: "stone"
+      variants: 4
+    - name: "water"
+      variants: 4
+    - name: "lava"
+      variants: 2
+    - name: "metal_floor"
+      variants: 3
+
+  ui_elements:
+    - name: "health_bar"
+      width: 200
+      height: 24
+    - name: "mana_bar"
+      width: 200
+      height: 24
+    - name: "xp_bar"
+      width: 300
+      height: 16
+    - name: "inventory_slot"
+      width: 64
+      height: 64
+    - name: "dialog_box"
+      width: 400
+      height: 150
+    - name: "minimap_frame"
+      width: 180
+      height: 180
+    - name: "tooltip"
+      width: 250
+      height: 80
+
+# ------ 3D Pipeline Settings ------
+pipeline_3d:
+  render_resolution: [1920, 1080]
+  render_samples: 128
+  export_formats: ["obj", "stl"]
+
+  models:
+    - name: "gem_ruby"
+      type: "gem"
+      params:
+        facets: 8
+        height: 1.2
+        radius: 0.6
+      color: [220, 30, 50]
+
+    - name: "gem_sapphire"
+      type: "gem"
+      params:
+        facets: 8
+        height: 1.0
+        radius: 0.7
+      color: [30, 80, 220]
+
+    - name: "gem_emerald"
+      type: "gem"
+      params:
+        facets: 6
+        height: 1.4
+        radius: 0.5
+      color: [30, 200, 80]
+
+    - name: "potion_health"
+      type: "potion"
+      params:
+        body_radius: 0.4
+        neck_radius: 0.15
+        height: 1.0
+      color: [220, 30, 30]
+
+    - name: "potion_mana"
+      type: "potion"
+      params:
+        body_radius: 0.4
+        neck_radius: 0.15
+        height: 1.0
+      color: [50, 50, 220]
+
+    - name: "shield_round"
+      type: "shield"
+      params:
+        radius: 0.8
+        depth: 0.15
+        rim_width: 0.08
+      color: [160, 140, 50]
+
+    - name: "sword_basic"
+      type: "sword"
+      params:
+        blade_length: 2.0
+        blade_width: 0.15
+        guard_width: 0.5
+        handle_length: 0.4
+      color: [190, 195, 200]
+
+    - name: "axe_war"
+      type: "axe"
+      params:
+        handle_length: 1.8
+        head_width: 0.6
+        head_height: 0.8
+      color: [150, 155, 160]
+
+    - name: "tower_defense"
+      type: "tower"
+      params:
+        base_radius: 1.0
+        top_radius: 0.7
+        height: 3.0
+        crenellations: 8
+      color: [140, 135, 125]
+
+    - name: "terrain_chunk"
+      type: "terrain"
+      params:
+        size: 10.0
+        resolution: 32
+        amplitude: 1.5
+        octaves: 4
+      color: [60, 160, 60]
+
+  scenes:
+    - name: "dungeon_entrance"
+      models: ["tower_defense", "gem_ruby", "sword_basic", "shield_round"]
+      camera:
+        position: [8, 8, 6]
+        target: [0, 0, 1]
+      lighting: "dramatic"
+
+    - name: "loot_display"
+      models:
+        [
+          "gem_ruby",
+          "gem_sapphire",
+          "gem_emerald",
+          "potion_health",
+          "potion_mana",
+        ]
+      camera:
+        position: [3, 3, 3]
+        target: [0, 0, 0.5]
+      lighting: "studio"
+
+    - name: "weapons_rack"
+      models: ["sword_basic", "axe_war", "shield_round"]
+      camera:
+        position: [4, 2, 2]
+        target: [0, 0, 1]
+      lighting: "warm"
+
+# ------ Report Settings ------
+reports:
+  title: "Game Asset Pipeline - Technical Report"
+  include_previews: true
+  include_metrics: true
+  include_methodology: true

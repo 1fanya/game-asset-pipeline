@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Report{% endblock %}
+{% block content %}
+<div class="section-header">
+    <h2>Technical Report</h2>
+    <p>Auto-generated documentation of the pipeline methodology and results</p>
+</div>
+
+<div class="report-content">
+    {% if report_content %}
+    {{ report_content | replace('# ', '<h1>') | replace('\n## ', '\n<h2>') | replace('\n### ', '\n<h3>') |
+                replace('\n---', '\n
+                <hr>') | replace('\n\n', '<br><br>') | replace('**', '<strong>') | replace('```', '
+                    <pre><code>') | safe }}
+  {% else %}
+    <p style="color:var(--text-muted);text-align:center;padding:3rem;">
+      No report generated yet. Run <code>python main.py generate</code> first.
+    </p>
+  {% endif %}
+</div>
+{% endblock %}

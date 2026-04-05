@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Game Asset Pipeline{% endblock %} — 2D & 3D Digital Media</title>
+  <meta name="description" content="Professional game asset pipeline showcasing 2D/3D digital media production with Blender, GIMP, and Inkscape.">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="/" class="logo"><span class="logo-icon">◆</span> Asset Pipeline</a>
+      <div class="nav-links">
+        <a href="/" class="{% if request.path == '/' %}active{% endif %}">Dashboard</a>
+        <a href="/gallery/2d" class="{% if '/2d' in request.path %}active{% endif %}">2D Gallery</a>
+        <a href="/gallery/3d" class="{% if '/3d' in request.path %}active{% endif %}">3D Viewer</a>
+        <a href="/pipeline" class="{% if '/pipeline' in request.path %}active{% endif %}">Pipeline</a>
+        <a href="/scripts" class="{% if '/scripts' in request.path %}active{% endif %}">Scripts</a>
+        <a href="/report" class="{% if '/report' in request.path %}active{% endif %}">Report</a>
+      </div>
+    </div>
+  </nav>
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="footer">
+    Game Asset Pipeline v1.0 — Built with Blender · GIMP · Inkscape · Python · Flask
+  </footer>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

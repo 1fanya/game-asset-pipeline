@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Pipeline{% endblock %}
+{% block content %}
+<div class="section-header">
+    <h2>Pipeline Execution</h2>
+    <p>Detailed metrics for each stage of the asset generation pipeline</p>
+</div>
+
+<div class="stats-grid" style="margin-bottom:2rem;">
+    <div class="stat-card animate-in">
+        <div class="stat-value">{{ manifest.stages|length }}</div>
+        <div class="stat-label">Total Stages</div>
+    </div>
+    <div class="stat-card animate-in">
+        <div class="stat-value">{{ manifest.summary.get('total_items', 0) }}</div>
+        <div class="stat-label">Total Items</div>
+    </div>
+    <div class="stat-card animate-in">
+        <div class="stat-value"
+            style="{% if manifest.summary.get('stages_failed',0) > 0 %}background:var(--gradient-warm);-webkit-background-clip:text;{% endif %}">
+            {{ manifest.summary.get('stages_failed', 0) }}
+        </div>
+        <div class="stat-label">Failures</div>
+    </div>
+    <div class="stat-card animate-in">
+        <div class="stat-value">{{ "%.2f"|format(manifest.summary.get('total_time_s', 0)) }}s</div>
+        <div class="stat-label">Total Time</div>
+    </div>
+</div>
+
+<div class="stage-list">
+    {% for stage in manifest.stages %}
+    <div class="stage-item animate-in">
+        <div class="stage-icon {{ stage.status }}">
+            {% if stage.status == 'success' %}✅{% else %}❌{% endif %}
+        </div>
+        <div class="stage-info" style="flex:1;">
+            <h4>{{ stage.name }}</h4>
+            <p>{{ stage.assets }} items generated</p>
+            <div class="progress-bar" style="margin-top:0.5rem;">
+                <div class="progress-fill"
+                    style="width:{{ (stage.assets / (manifest.summary.get('total_items',1) or 1) * 100)|int }}%"></div>
+            </div>
+        </div>
+        <div class="stage-meta">
+            <div class="time">{{ "%.3f"|format(stage.time_s) }}s</div>
+            <span class="badge {% if stage.status == 'success' %}badge-green{% else %}badge-red{% endif %}">
+                {{ stage.status }}
+            </span>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% if manifest.summary.get('stages_failed', 0) > 0 %}
+<div class="card" style="margin-top:2rem;border-color:var(--accent-red);">
+    <h3 style="color:var(--accent-red);margin-bottom:0.5rem;">⚠️ Failed Stages</h3>
+    {% for stage in manifest.stages if stage.status == 'error' %}
+    <p style="font-size:0.85rem;color:var(--text-muted);margin:0.25rem 0;">
+        <strong>{{ stage.name }}:</strong> {{ stage.get('error', 'Unknown error') }}
+    </p>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

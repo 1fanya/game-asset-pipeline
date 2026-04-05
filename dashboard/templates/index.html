@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<section class="hero">
+    <h1>Game Asset Pipeline</h1>
+    <p>Automated 2D & 3D digital media production powered by Blender, GIMP, and Inkscape with intelligent Python
+        orchestration.</p>
+</section>
+
+<div class="stats-grid">
+    <div class="stat-card animate-in">
+        <div class="stat-value">{{ manifest.summary.get('total_assets', 0) }}</div>
+        <div class="stat-label">Assets Generated</div>
+    </div>
+    <div class="stat-card animate-in">
+        <div class="stat-value">{{ manifest.summary.get('total_scripts', 0) }}</div>
+        <div class="stat-label">Tool Scripts</div>
+    </div>
+    <div class="stat-card animate-in">
+        <div class="stat-value">{{ manifest.summary.get('stages_passed', 0) }}/{{ manifest.stages|length }}</div>
+        <div class="stat-label">Stages Passed</div>
+    </div>
+    <div class="stat-card animate-in">
+        <div class="stat-value">{{ "%.1f"|format(manifest.summary.get('total_time_s', 0)) }}s</div>
+        <div class="stat-label">Pipeline Time</div>
+    </div>
+</div>
+
+<div class="section-header">
+    <h2>Pipeline Overview</h2>
+    <p>Status of each processing stage in the asset pipeline</p>
+</div>
+<div class="stage-list">
+    {% for stage in manifest.stages %}
+    <div class="stage-item animate-in">
+        <div class="stage-icon {{ stage.status }}">
+            {% if stage.status == 'success' %}✅{% else %}❌{% endif %}
+        </div>
+        <div class="stage-info">
+            <h4>{{ stage.name }}</h4>
+            <p>{{ stage.assets }} items generated</p>
+        </div>
+        <div class="stage-meta">
+            <div class="time">{{ "%.3f"|format(stage.time_s) }}s</div>
+            <span class="badge {% if stage.status == 'success' %}badge-green{% else %}badge-red{% endif %}">
+                {{ stage.status }}
+            </span>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="section-header" style="margin-top:3rem;">
+    <h2>Tools & Technologies</h2>
+</div>
+<div class="stats-grid">
+    <div class="card animate-in">
+        <h3 style="margin-bottom:0.5rem;">🎨 Blender</h3>
+        <p style="color:var(--text-muted);font-size:0.85rem;">3D modeling, UV unwrapping, PBR materials, scene rendering
+            via Python scripting (bpy)</p>
+    </div>
+    <div class="card animate-in">
+        <h3 style="margin-bottom:0.5rem;">🖌️ GIMP</h3>
+        <p style="color:var(--text-muted);font-size:0.85rem;">2D sprite processing, texture filters, animation frame
+            export via Script-Fu & Python-Fu</p>
+    </div>
+    <div class="card animate-in">
+        <h3 style="margin-bottom:0.5rem;">✏️ Inkscape</h3>
+        <p style="color:var(--text-muted);font-size:0.85rem;">Vector UI/HUD elements, multi-DPI PNG export via CLI batch
+            processing</p>
+    </div>
+    <div class="card animate-in">
+        <h3 style="margin-bottom:0.5rem;">🐍 Python</h3>
+        <p style="color:var(--text-muted);font-size:0.85rem;">Pipeline orchestration, procedural generation,
+            NumPy/Pillow fallback rendering</p>
+    </div>
+</div>
+{% endblock %}

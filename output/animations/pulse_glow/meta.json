@@ -1,0 +1,48 @@
+{
+  "name": "pulse_glow",
+  "frame_count": 8,
+  "size": 128,
+  "fps": 10,
+  "frames": [
+    {
+      "index": 0,
+      "path": "output\\animations\\pulse_glow\\frame_000.png",
+      "duration_ms": 100
+    },
+    {
+      "index": 1,
+      "path": "output\\animations\\pulse_glow\\frame_001.png",
+      "duration_ms": 100
+    },
+    {
+      "index": 2,
+      "path": "output\\animations\\pulse_glow\\frame_002.png",
+      "duration_ms": 100
+    },
+    {
+      "index": 3,
+      "path": "output\\animations\\pulse_glow\\frame_003.png",
+      "duration_ms": 100
+    },
+    {
+      "index": 4,
+      "path": "output\\animations\\pulse_glow\\frame_004.png",
+      "duration_ms": 100
+    },
+    {
+      "index": 5,
+      "path": "output\\animations\\pulse_glow\\frame_005.png",
+      "duration_ms": 100
+    },
+    {
+      "index": 6,
+      "path": "output\\animations\\pulse_glow\\frame_006.png",
+      "duration_ms": 100
+    },
+    {
+      "index": 7,
+      "path": "output\\animations\\pulse_glow\\frame_007.png",
+      "duration_ms": 100
+    }
+  ]
+}

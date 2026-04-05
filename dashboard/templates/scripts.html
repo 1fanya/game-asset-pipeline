@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Tool Scripts{% endblock %}
+{% block content %}
+<div class="section-header">
+    <h2>Generated Tool Scripts</h2>
+    <p>Ready-to-run scripts for Blender, GIMP, and Inkscape production workflows</p>
+</div>
+
+<div class="stats-grid" style="margin-bottom:2rem;">
+    <div class="stat-card animate-in">
+        <div class="stat-value">{{ count_by_tool(scripts, 'Blender') }}</div>
+        <div class="stat-label">Blender Scripts</div>
+    </div>
+    <div class="stat-card animate-in">
+        <div class="stat-value">{{ count_by_tool(scripts, 'GIMP') }}</div>
+        <div class="stat-label">GIMP Scripts</div>
+    </div>
+    <div class="stat-card animate-in">
+        <div class="stat-value">{{ count_by_tool(scripts, 'Inkscape') }}</div>
+        <div class="stat-label">Inkscape Scripts</div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3>Script Inventory</h3>
+        <span class="badge badge-cyan">{{ scripts|length }} total</span>
+    </div>
+    <table class="script-table">
+        <thead>
+            <tr>
+                <th>Script</th>
+                <th>Tool</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in scripts %}
+            <tr>
+                <td><code>{{ s.name }}</code></td>
+                <td>
+                    <span
+                        class="badge {% if s.tool == 'Blender' %}badge-violet{% elif 'GIMP' in s.tool %}badge-cyan{% else %}badge-green{% endif %}">
+                        {{ s.tool }}
+                    </span>
+                </td>
+                <td style="color:var(--text-muted);">{{ s.get('description', s.get('model', '')) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="card" style="margin-top:1.5rem;">
+    <div class="card-header">
+        <h3>Usage Examples</h3>
+    </div>
+    <h4 style="color:var(--accent-violet);margin:0.5rem 0;">Blender (Headless)</h4>
+    <pre
+        style="background:var(--bg-secondary);padding:1rem;border-radius:8px;overflow-x:auto;"><code>blender --background --python output/scripts/blender/model_gem_ruby.py</code></pre>
+    <h4 style="color:var(--accent-cyan);margin:0.75rem 0 0.5rem;">GIMP (Batch)</h4>
+    <pre
+        style="background:var(--bg-secondary);padding:1rem;border-radius:8px;overflow-x:auto;"><code>gimp -i -b '(script-fu-load "output/scripts/gimp/knight_sprites.scm")' -b '(gimp-quit 0)'</code></pre>
+    <h4 style="color:var(--accent-green);margin:0.75rem 0 0.5rem;">Inkscape (CLI Export)</h4>
+    <pre
+        style="background:var(--bg-secondary);padding:1rem;border-radius:8px;overflow-x:auto;"><code>output\scripts\inkscape_export.bat</code></pre>
+</div>
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% block title %}3D Viewer{% endblock %}
+{% block head %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+{% endblock %}
+{% block content %}
+<div class="section-header">
+    <h2>3D Model Viewer</h2>
+    <p>Interactive Three.js viewer — orbit, zoom, and inspect generated 3D models</p>
+</div>
+
+{% set models = [] %}
+{% for a in assets if a.type == '3d_model' %}
+{% if models.append(a) %}{% endif %}
+{% endfor %}
+
+<div class="model-picker" id="modelPicker">
+    {% for m in models %}
+    <button onclick="loadModel('{{ m.name }}', this)" {% if loop.first %}class="active" {% endif %}>
+        {{ m.name.replace('_',' ').title() }}
+    </button>
+    {% endfor %}
+</div>
+
+<div class="viewer-container" id="viewer3d">
+    <div class="viewer-controls">
+        <button onclick="toggleWireframe()">Wireframe</button>
+        <button onclick="resetCamera()">Reset View</button>
+        <button onclick="toggleGrid()">Grid</button>
+    </div>
+</div>
+
+<div class="section-header" style="margin-top:2rem;">
+    <h2>Scene Previews & Maps</h2>
+</div>
+<div class="gallery-grid">
+    {% for a in assets if a.type in ('scene_preview','uv_layout','normal_map') %}
+    <div class="gallery-item animate-in">
+        <img src="/output/{{ a.path | asset_url }}" alt="{{ a.name }}" loading="lazy"
+            onerror="this.style.display='none'">
+        <div class="gallery-info">
+            <h4>{{ a.name }}</h4>
+            <p><span
+                    class="badge {% if 'scene' in a.type %}badge-cyan{% elif 'uv' in a.type %}badge-green{% else %}badge-violet{% endif %}">{{
+                    a.type.replace('_',' ') }}</span></p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% block scripts %}
+<script>
+    let scene, camera, renderer, controls, currentMesh, gridHelper;
+    let wireframeMode = false, gridVisible = true;
+
+    function init() {
+        const container = document.getElementById('viewer3d');
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x12122a);
+        camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 100);
+        camera.position.set(3, 3, 3);
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        container.appendChild(renderer.domElement);
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true; controls.dampingFactor = 0.05;
+        const ambient = new THREE.AmbientLight(0x404060, 0.6);
+        scene.add(ambient);
+        const key = new THREE.DirectionalLight(0x06b6d4, 1.2);
+        key.position.set(5, 8, 5); scene.add(key);
+        const fill = new THREE.DirectionalLight(0x8b5cf6, 0.5);
+        fill.position.set(-3, 4, -2); scene.add(fill);
+        const rim = new THREE.PointLight(0x22c55e, 0.4, 20);
+        rim.position.set(0, -2, 5); scene.add(rim);
+        gridHelper = new THREE.GridHelper(10, 20, 0x333355, 0x222244);
+        scene.add(gridHelper);
+        window.addEventListener('resize', () => {
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        });
+        animate();
+        const first = document.querySelector('.model-picker button');
+        if (first) first.click();
+    }
+    function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+    }
+    function loadModel(name, btn) {
+        document.querySelectorAll('.model-picker button').forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+        if (currentMesh) { scene.remove(currentMesh); currentMesh = null; }
+        const loader = new THREE.STLLoader();
+        loader.load('/output/models_3d/' + name + '.stl', function (geometry) {
+            geometry.computeVertexNormals();
+            const material = new THREE.MeshPhongMaterial({
+                color: 0x06b6d4, specular: 0x8b5cf6, shininess: 80,
+                wireframe: wireframeMode, flatShading: false
+            });
+            currentMesh = new THREE.Mesh(geometry, material);
+            geometry.computeBoundingBox();
+            const box = geometry.boundingBox;
+            const center = new THREE.Vector3();
+            box.getCenter(center);
+            currentMesh.position.sub(center);
+            const size = new THREE.Vector3();
+            box.getSize(size);
+            const maxDim = Math.max(size.x, size.y, size.z);
+            if (maxDim > 0) currentMesh.scale.multiplyScalar(3 / maxDim);
+            scene.add(currentMesh);
+            resetCamera();
+        }, undefined, function (err) { console.error('STL load error:', err); });
+    }
+    function toggleWireframe() {
+        wireframeMode = !wireframeMode;
+        if (currentMesh) currentMesh.material.wireframe = wireframeMode;
+    }
+    function resetCamera() {
+        camera.position.set(3, 3, 3);
+        controls.target.set(0, 0, 0);
+        controls.update();
+    }
+    function toggleGrid() {
+        gridVisible = !gridVisible;
+        gridHelper.visible = gridVisible;
+    }
+    window.addEventListener('DOMContentLoaded', init);
+</script>
+{% endblock %}
+{% endblock %}
