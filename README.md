@@ -2,7 +2,7 @@
 
 **Automated 2D & 3D game asset production** using Blender, GIMP, and Inkscape with Python orchestration and a premium web dashboard.
 
-> **[🌐 Live Demo →](https://YOUR_USERNAME.github.io/game-asset-pipeline/)**
+> **[🌐 Live Demo →](https://1fanya.github.io/game-asset-pipeline/)**
 
 ---
 
